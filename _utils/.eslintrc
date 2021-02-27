@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "ts-important-stuff",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": ["error", { "singleQuote": true }]
+  },
+  "parser": "babel-eslint"
+}

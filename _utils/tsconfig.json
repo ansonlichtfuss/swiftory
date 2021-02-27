@@ -1,0 +1,10 @@
+{
+  "extends": "ts-config-single-spa",
+  "include": ["src/**/*"],
+  "alwaysStrict": true,
+  "noFallthroughCasesInSwitch": true,
+  "noUnusedLocals": true,
+  "noUnusedParameters": true,
+  "forceConsistentCasingInFileNames": true,
+  "strict": true
+}
