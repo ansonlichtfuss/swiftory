@@ -1,8 +1,10 @@
 {
   "imports": {
-    "@swiftory/root-config": "//localhost:9000/swiftory-root-configgggg.js",
-    "@swiftory/home": "//localhost:8500/swiftory-homeeeee.js",
-    "react": "https://cdn.jsdelivr.net/npm/react@17.0.1/umd/react.production.min.js",
-    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.1/umd/react-dom.production.min.js"
+    "@swiftory/root-config": "//localhost:9000/swiftory-root-config.js",
+    "@swiftory/components": "//localhost:8498/swiftory-components.js",
+    "@swiftory/utils": "//localhost:8499/swiftory-utils.js",
+    "@swiftory/home": "//localhost:8500/swiftory-home.js",
+    "@swiftory/jukebox": "//localhost:8501/swiftory-jukebox.js",
+    "@swiftory/album-folklore": "//localhost:8502/swiftory-album-folklore.js"
   }
 }
