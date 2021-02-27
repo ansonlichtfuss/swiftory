@@ -1,3 +1,4 @@
+import { AddToJukeboxButton } from '@swiftory/components';
 import React from 'react';
 
 export default function Root(props) {
@@ -9,6 +10,10 @@ export default function Root(props) {
           <a href="/album/folklore">go to album 1</a>
         </li>
       </ul>
+      {/* <button onClick={() => jukeboxEvents.dispatch('test', { shit: 'up' })}>
+        clikme
+      </button> */}
+      <AddToJukeboxButton />
     </section>
   );
 }

@@ -1,30 +1,38 @@
-/**
- *
- * Types
- *
- */
-type EVENT_KEY = 'add_album' | 'test';
-interface EVENT_BODY {
-  name: string;
-  artist: string;
-  thumbnail: string;
-  releaseYear: number;
-}
+import { EventMethods } from '@swiftory/utils';
 
-/**
- *
- * Functions
- *
- */
-export const jukeboxEvents = {
-  dispatch: (eventKey: EVENT_KEY, eventBody: EVENT_BODY) => {
+export const jukeboxEvents: EventMethods = {
+  dispatch: (eventKey, eventBody) => {
+    if (!eventKey) {
+      throw new TypeError('Invalid event key.');
+    }
+    if (!eventBody) {
+      throw new TypeError('Invalid event body for dispatch.');
+    }
+
+    console.log('jukeboxEvents dispatch');
     const event = new CustomEvent(eventKey, { detail: eventBody });
     window.dispatchEvent(event);
   },
-  attach: (eventKey: EVENT_KEY, callback: EventListener) => {
+  attach: (eventKey, callback) => {
+    if (!eventKey) {
+      throw new TypeError('Invalid event key.');
+    }
+    if (!callback) {
+      throw new TypeError('A callback is required to attach to an event.');
+    }
+
+    console.log('jukeboxEvents attach');
     window.addEventListener(eventKey, callback);
   },
-  cleanup: (eventKey: EVENT_KEY, callback: EventListener) => {
+  cleanup: (eventKey, callback) => {
+    if (!eventKey) {
+      throw new TypeError('Invalid event key.');
+    }
+    if (!callback) {
+      throw new TypeError('A callback is required to clean up from an event.');
+    }
+
+    console.log('jukeboxEvents cleanup');
     window.removeEventListener(eventKey, callback);
   },
 };

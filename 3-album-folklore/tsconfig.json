@@ -3,7 +3,7 @@
   "compilerOptions": {
     "jsx": "react"
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../@types"],
   "alwaysStrict": true,
   "noFallthroughCasesInSwitch": true,
   "noUnusedLocals": true,
