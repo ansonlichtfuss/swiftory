@@ -1,5 +1,5 @@
 declare module '@swiftory/utils' {
-  export type EventKey = 'add_album' | 'test';
+  export type EventKey = 'swiftory:add_album' | 'swiftory:test';
   export type EventBody =
     | {
         name: string;

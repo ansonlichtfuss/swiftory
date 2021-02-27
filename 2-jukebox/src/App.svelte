@@ -1,5 +1,4 @@
 <script lang="ts">
-  // @ts-ignore
   import { jukeboxEvents } from '@swiftory/utils';
 import { onDestroy,onMount } from 'svelte';
 
@@ -7,14 +6,16 @@ import { onDestroy,onMount } from 'svelte';
   export let name;
   export let testCount = 0;
 
-  onMount(() => {
-    jukeboxEvents.attach('test', (e: Event) => {
+  const testEventCallback = (e: Event) => {
       testCount++;
-    })
+    };
+
+  onMount(() => {
+    jukeboxEvents.attach('swiftory:test', testEventCallback)
   })
 
   onDestroy(() => {
-    jukeboxEvents.cleanup();
+    jukeboxEvents.cleanup('swiftory:test', testEventCallback);
   })
 </script>
 
