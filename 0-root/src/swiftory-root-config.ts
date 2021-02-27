@@ -9,7 +9,12 @@ import { HTMLLayoutData } from 'single-spa-layout/dist/types/isomorphic/construc
 const data: HTMLLayoutData = {
   props: {},
   loaders: {
-    topNav: `<nav class="placeholder">ya LOAD</nav>`,
+    homepageLoader: `<nav class="placeholder">ya LOAD</nav>`,
+    jukeboxLoader: `<div class="placeholder">ya LOAD le jukebox</div>`,
+  },
+  errors: {
+    pageError: "<h3>hmm, this page didn't load right</h3>",
+    jukeboxError: '<h5>the jukebox is unavailable right now</h5>',
   },
 };
 

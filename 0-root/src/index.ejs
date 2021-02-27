@@ -96,20 +96,19 @@
       </nav> -->
         <main>
           <route default>
-            <application name="@swiftory/home" loader="topNav"></application>
+            <application name="@swiftory/home" loader="homepageLoader" error="pageError"></application>
           </route>
-          <route path="album/folklore">
-            <application name="@swiftory/album-folklore"></application>
+          <route path="/album/folklore">
+            <application name="@swiftory/album-folklore" error="pageError"></application>
           </route>
         </main>
         <div>
-          <application name="@swiftory/jukebox"></application>
+          <application name="@swiftory/jukebox" loader="jukeboxLoader" error="jukeboxError"></application>
         </div>
       </single-spa-router>
     </template>
   </head>
   <body style="background: #000; color: #fff">
-    and also with you
     <script>
       System.import('@swiftory/root-config');
     </script>
