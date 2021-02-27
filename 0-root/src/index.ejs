@@ -55,11 +55,11 @@
     />
 
     <!-- Add your organization's prod import map URL to this script's src  -->
-    <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
+    <script type="systemjs-importmap" src="/importmap.json?2234fdsf"></script>
 
     <!-- "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js", -->
     <!-- TODO: Change this back to local only and add a prod config file like above -->
-    <!-- <   % if (isLocal) { %   > -->
+    <% if (isLocal) { %>
     <script type="systemjs-importmap">
       {
         "imports": {
@@ -72,7 +72,7 @@
         }
       }
     </script>
-    <!-- <   % } %    > -->
+    <% } %>
 
     <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded

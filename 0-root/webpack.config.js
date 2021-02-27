@@ -26,9 +26,9 @@ module.exports = (webpackConfigEnv, argv) => {
       }),
       new CopyPlugin({
         patterns: [
+          { from: 'src/importmap.json', to: 'importmap.json' },
           { from: 'src/robots.txt', to: 'robots.txt' },
           { from: 'src/serve.json', to: 'serve.json' },
-          { from: 'src/serve.json', to: 'vercel.json' },
         ],
       }),
     ],
