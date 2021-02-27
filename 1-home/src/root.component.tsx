@@ -1,5 +1,6 @@
 import { AddToJukeboxButton } from '@swiftory/components';
 import React from 'react';
+import { navigateToUrl } from 'single-spa';
 
 export default function Root(props) {
   return (
@@ -7,7 +8,9 @@ export default function Root(props) {
       {props.name} is mounted! ya motherfuckerz
       <ul>
         <li>
-          <a href="/album/folklore">go to album 1</a>
+          <a href="album/folklore" onClick={navigateToUrl}>
+            go to album 1
+          </a>
         </li>
       </ul>
       {/* <button onClick={() => jukeboxEvents.dispatch('test', { shit: 'up' })}>

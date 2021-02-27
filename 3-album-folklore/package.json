@@ -1,8 +1,8 @@
 {
   "name": "@swiftory/album-folklore",
   "scripts": {
-    "serve": "serve dist -p 8501",
-    "start": "webpack serve --port 8501",
+    "serve": "serve dist -p 8502",
+    "start": "webpack serve --port 8502",
     "start:standalone": "webpack serve --env standalone",
     "build": "webpack --mode=production",
     "analyze": "webpack --mode=production --env analyze",
