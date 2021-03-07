@@ -9,7 +9,7 @@ import { HTMLLayoutData } from 'single-spa-layout/dist/types/isomorphic/construc
 const data: HTMLLayoutData = {
   props: {},
   loaders: {
-    homepageLoader: `<nav class="placeholder">ya LOAD</nav>`,
+    homepageLoader: `<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;align-items:center;justify-content:center;"></div>`,
     jukeboxLoader: `<div class="placeholder">ya LOAD le jukebox</div>`,
   },
   errors: {
