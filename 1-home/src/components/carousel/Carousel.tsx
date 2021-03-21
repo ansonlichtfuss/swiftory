@@ -8,18 +8,10 @@ const cards = [
   },
   {
     id: 'card2',
+    href: '/album/lover',
   },
   {
     id: 'card3',
-  },
-  {
-    id: 'card4',
-  },
-  {
-    id: 'card5',
-  },
-  {
-    id: 'card6',
   },
 ];
 
@@ -62,10 +54,43 @@ export const Carousel = () => {
         className="absolute top-0 left-0 w-full h-full z-10"
         style={{
           background:
-            'linear-gradient(0.25turn, #14060A,#14060A, rgba(20,6,10,0),rgba(20,6,10,0),rgba(20,6,10,0), #14060A, #14060A)',
+            'linear-gradient(0.25turn, #000,#000, rgba(20,6,10,0),rgba(20,6,10,0),rgba(20,6,10,0), #000, #000)',
           pointerEvents: 'none',
         }}
       ></div>
+
+      <button
+        type="button"
+        onClick={() =>
+          selectedCard > 0 ? setSelectedCard((curr) => curr - 1) : null
+        }
+        className={`absolute top-0 text-9xl font-medium text-white text-center z-10 h-full flex items-center justify-end px-24 transition-opacity hover:opacity-1 ${
+          selectedCard > 0
+            ? 'opacity-70'
+            : 'opacity-0 hover:opacity-0 cursor-default'
+        }`}
+        style={{ width: '200px', left: 'calc(50% - 400px)', outline: 'none' }}
+      >
+        &lang;
+      </button>
+
+      <button
+        type="button"
+        onClick={() =>
+          selectedCard < cards.length - 1
+            ? setSelectedCard((curr) => curr + 1)
+            : null
+        }
+        className={`absolute top-0 text-9xl font-medium text-white text-center z-10 h-full flex items-center justify-start px-24 transition-opacity hover:opacity-1 ${
+          selectedCard < cards.length - 1
+            ? 'opacity-70'
+            : 'opacity-0 hover:opacity-0 cursor-default'
+        }`}
+        style={{ width: '200px', left: 'calc(50% + 200px)', outline: 'none' }}
+      >
+        &rang;
+      </button>
+
       <AnimateSharedLayout>
         <div
           style={{
@@ -83,62 +108,14 @@ export const Carousel = () => {
             return (
               <CarouselCard
                 key={thisCard.id}
+                data={card}
                 layoutId={thisCard.id}
                 position={index}
-                onClick={() => {
-                  if (index < 2) {
-                    setSelectedCard((curr) => curr - 1);
-                  }
-                  if (index > 2) {
-                    setSelectedCard((curr) => curr + 1);
-                  }
-                }}
-              >
-                {thisCard.id}
-              </CarouselCard>
+                isSelected={index === 2}
+              ></CarouselCard>
             );
           })}
-          {/* <div>
         </div>
-        <div>
-          <CarouselCard
-            key={cards[0].id}
-            layoutId={cards[1].id}
-            position={center}
-            onClick={() => {
-              setLeft('center');
-              setCenter('right');
-              setRight('hidden');
-            }}
-          >
-            card 2
-          </CarouselCard>
-        </div>
-        <div>
-          <CarouselCard
-            key={cards[0].id}
-            layoutId={cards[2].id}
-            position={right}
-            onClick={() => setLeft('center')}
-          >
-            card 3
-          </CarouselCard>
-        </div> */}
-        </div>
-        {/* <style>{`
-        .left {
-          transform: rotateY(-40deg) scale(0.8);
-        }
-        .center {
-          transform: rotateY(0deg) scale(1);
-        }
-        .right {
-          transform: rotateY(40deg) scale(0.8);
-        }
-        .hidden {
-          opacity: 0;
-        }
-      `}</style> */}
       </AnimateSharedLayout>
     </m.div>
   );
