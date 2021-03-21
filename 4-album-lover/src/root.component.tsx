@@ -59,7 +59,7 @@ export default function Root(props) {
 
   useEffect(() => {
     if (isDoneShowContent) {
-      setTimeout(() => setIsLoading(false), 500);
+      setTimeout(() => setIsLoading(false), 1000);
     }
   }, [isDoneShowContent]);
 
