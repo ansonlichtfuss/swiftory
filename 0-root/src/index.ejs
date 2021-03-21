@@ -103,7 +103,7 @@
             <application name="@swiftory/album-folklore" error="pageError"></application>
           </route>
           <route path="/album/lover">
-            <application name="@swiftory/album-lover" error="pageError"></application>
+            <application name="@swiftory/album-lover" loader="loverLoader" error="pageError"></application>
           </route>
         </main>
         <div>
@@ -112,7 +112,7 @@
       </single-spa-router>
     </template>
   </head>
-  <body style="background: #000; color: #fff">
+  <body id="body" style="background: #000; color: #fff">
     <script>
       System.import('@swiftory/root-config');
     </script>
