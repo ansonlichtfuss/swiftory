@@ -1,220 +1,71 @@
+import { CDN_URL, preloadImages } from '@swiftory/utils';
 import {
-  AnimatePresence,
   motion,
   useSpring,
   useTransform,
   useViewportScroll,
 } from 'framer-motion';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { BorderedBackground, IMAGE_BACKGROUND_URL } from './BorderedBackground';
+import { CloudCanvas } from './CloudCanvas';
+import { Hero, IMAGE_HERO_URL } from './Hero';
+import { LineLoader } from './LineLoader';
+import { IMAGE_LOGO_URL, Logo } from './Logo';
 
 export default function Root(props) {
-  const canvasRef = useRef<HTMLCanvasElement>();
-  const { scrollYProgress, scrollY } = useViewportScroll();
-  const logoScale = useTransform(scrollY, [0, 200], [1, 0.4]);
-  const heroScale = useTransform(scrollY, [0, 200], [1, 0.3]);
-  const boxShadowWidth = useTransform(
-    scrollY,
-    [0, 200],
-    ['0 0 0 0px hsl(318,23%,20%) inset', '0 0 0 2px hsl(318,23%,20%) inset']
-  );
+  const { scrollY } = useViewportScroll();
   const showText1 = useTransform(scrollY, [90, 200], [0, 1]);
+
   const [isLoading, setIsLoading] = useState(true);
   const [isDoneShowContent, setIsDoneShowContent] = useState(false);
   const loadingPercent = useSpring(0);
-
-  const [preloadedImages, setPreloadedImages] = useState([]);
-
-  const doLoadIn: (
-    arrayOfImgSrc: string[]
-  ) => Promise<HTMLImageElement[]> = useCallback(
-    async (arrayOfImgSrc) => {
-      const totalLength = arrayOfImgSrc.length;
-      let loadingCount = 0;
-      let prevPercent = 0;
-      const arr = await Promise.all<HTMLImageElement>(
-        arrayOfImgSrc.map(
-          (imgSrc) =>
-            new Promise((resolve) => {
-              const img = new Image();
-              img.src = imgSrc;
-              img.onload = () => {
-                loadingCount++;
-                const newPercent =
-                  Math.floor((loadingCount / totalLength) * 100) / 100 || 0;
-                if (newPercent - prevPercent > 0.05 || newPercent === 1) {
-                  loadingPercent.set(newPercent);
-                  prevPercent = newPercent;
-                }
-                resolve(img);
-              };
-            })
-        )
-      );
-      setIsDoneShowContent(true);
-      setPreloadedImages(arr);
-      return arr;
-    },
-    [loadingPercent]
+  const [preloadedImages, setPreloadedImages] = useState<HTMLImageElement[]>(
+    []
   );
 
   useEffect(() => {
-    if (isDoneShowContent) {
-      setTimeout(() => setIsLoading(false), 1000);
-    }
-  }, [isDoneShowContent]);
-
-  useEffect(() => {
-    if (!isLoading && preloadedImages.length > 0) {
-      const context = canvasRef?.current?.getContext('2d');
-      context.canvas.width = window.innerWidth;
-      context.canvas.height = window.innerHeight;
-
-      const img: HTMLImageElement = preloadedImages[0];
-      context.drawImage(
-        img,
-        0,
-        0,
-        canvasRef?.current?.width,
-        canvasRef?.current?.height
-      );
-    }
-  }, [isLoading, preloadedImages]);
-
-  useEffect(() => {
-    async function funk() {
-      const arr = [];
+    async function initialLoad() {
+      const arr = [IMAGE_HERO_URL, IMAGE_LOGO_URL, IMAGE_BACKGROUND_URL];
       for (let i = 1; i <= 191; i++) {
         arr.push(
-          `https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/album-lover/bluesky/${(
-            i * 2
-          )
+          `${CDN_URL}/album-lover/bluesky/${(i * 2)
             .toString()
             .padStart(4, '0')}.jpg`
         );
       }
 
-      await doLoadIn(arr);
+      const preloadedArr: HTMLImageElement[] = await preloadImages(
+        arr,
+        (newPercent) => loadingPercent.set(newPercent)
+      );
+      setPreloadedImages(preloadedArr.slice(3));
+      setIsDoneShowContent(true);
+
+      // Allow for content to render beneath the loader before showing user
+      setTimeout(() => setIsLoading(false), 500);
     }
     if (isLoading) {
-      funk();
+      initialLoad();
     }
-  }, [doLoadIn, isLoading]);
-
-  useEffect(() => {
-    if (preloadedImages.length > 0) {
-      scrollYProgress.onChange((latest) => {
-        const newIndex = Math.round(latest * 191);
-        if (canvasRef?.current && newIndex > 0 && newIndex % 2 === 0) {
-          const context = canvasRef?.current?.getContext('2d');
-          const img = preloadedImages[newIndex];
-          context.drawImage(
-            img,
-            0,
-            0,
-            canvasRef?.current?.width,
-            canvasRef?.current?.height
-          );
-        }
-      });
-    }
-  }, [preloadedImages, scrollYProgress]);
+  }, [isLoading, loadingPercent]);
 
   return (
     <section>
-      <AnimatePresence>
-        {(isLoading || !isDoneShowContent) && (
-          <motion.div
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100vw',
-              height: '100vh',
-              zIndex: 50,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: 'hsl(318,23%,20%)',
-            }}
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div
-              className="relative origin-left"
-              style={{
-                width: '30%',
-                height: '1px',
-                background: 'rgba(255,255,255,0.2)',
-              }}
-            >
-              <motion.div
-                style={{
-                  scaleX: loadingPercent,
-                  width: '100%',
-                  height: '1px',
-                  background: '#fff',
-                }}
-              ></motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <LineLoader
+        visible={isLoading || !isDoneShowContent}
+        loadingPercent={loadingPercent}
+        backgroundColor="hsl(318,23%,20%)"
+        loaderColor="#ffffff"
+      />
+
       {isDoneShowContent && (
         <>
           <div className="relative" style={{ zIndex: -1 }}>
-            <canvas
-              ref={canvasRef}
-              className="fixed top-0 left-0 w-screen h-screen z-0 object-cover"
-            />
-            <div
-              className="fixed top-0 left-0 w-full h-full z-0"
-              style={{
-                opacity: 0.9,
-                background:
-                  'url(https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/album-lover/lover-background-image.jpg) center center no-repeat',
-                backgroundSize: 'cover',
-              }}
-            ></div>
-            <div
-              className="p-8"
-              style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: '100vw',
-                height: '100vh',
-                opacity: 0.1,
-              }}
-            >
-              <motion.div
-                style={{
-                  height: '100%',
-                  boxShadow: boxShadowWidth,
-                }}
-              ></motion.div>
-            </div>
+            <CloudCanvas preloadedImages={preloadedImages} />
+            <BorderedBackground />
           </div>
-          <motion.div
-            style={{ scale: logoScale }}
-            className="flex items-center justify-center fixed top-0 w-full origin-top mt-10"
-          >
-            <img
-              src="https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/album-lover/lover-logo.png"
-              style={{ height: '130px' }}
-            />
-          </motion.div>
-          <motion.div
-            style={{ scale: heroScale }}
-            className="flex items-center justify-center fixed bottom-0 w-full origin-bottom"
-          >
-            <img
-              className="ml-20"
-              src="https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/album-lover/lover-hero.png"
-              style={{ height: '450px' }}
-            />
-          </motion.div>
+          <Logo />
+          <Hero />
           <div className="fixed top-0 left-0 w-full h-full z-0 flex items-center justify-center">
             <div
               className="max-w-prose w-full"
