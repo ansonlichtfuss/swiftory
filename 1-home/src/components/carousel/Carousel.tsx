@@ -4,14 +4,13 @@ import { CarouselCard } from './CarouselCard';
 
 const cards = [
   {
-    id: 'card1',
+    id: 'folklore',
   },
   {
-    id: 'card2',
-    href: '/album/lover',
+    id: 'lover',
   },
   {
-    id: 'card3',
+    id: 'reputation',
   },
 ];
 

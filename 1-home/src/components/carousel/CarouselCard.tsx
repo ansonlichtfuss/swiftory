@@ -1,3 +1,4 @@
+import { CDN_URL } from '@swiftory/utils';
 import { m } from 'framer-motion';
 import React from 'react';
 import { navigateToUrl } from 'single-spa';
@@ -57,7 +58,7 @@ export const CarouselCard = ({ data, layoutId, position, isSelected }) => {
         background: position === 2 ? '#fff' : '',
         pointerEvents: position === 2 ? 'auto' : 'none',
       }}
-      href={data.href}
+      href={`/album/${data.id}`}
       onClick={navigateToUrl}
     >
       <div
@@ -66,7 +67,7 @@ export const CarouselCard = ({ data, layoutId, position, isSelected }) => {
           zIndex: -1,
           background: layoutId.includes('blank')
             ? '#333'
-            : 'url(https://images-na.ssl-images-amazon.com/images/I/71RfNE3rIyL._SL1500_.jpg) center center no-repeat',
+            : `url(${CDN_URL}/carousel/${data.id}-cover.jpg) center center no-repeat`,
           backgroundSize: 'cover',
           transition: 'filter 0.3s ease',
         }}

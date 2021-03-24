@@ -37,7 +37,7 @@ export default function Root(props) {
         <p className="mt-2 text-sm text-center opacity-50">
           Select an album to explore.
           <br />
-          Click on artists to collect them for your jukebox.
+          Click on artists to add their work to your jukebox.
         </p>
         <div className="my-12"></div>
       </div>
