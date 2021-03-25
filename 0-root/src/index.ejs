@@ -69,7 +69,8 @@
           "@swiftory/home": "//localhost:8500/swiftory-home.js",
           "@swiftory/jukebox": "//localhost:8501/swiftory-jukebox.js",
           "@swiftory/album-folklore": "//localhost:8502/swiftory-album-folklore.js",
-          "@swiftory/album-lover": "//localhost:8503/swiftory-album-lover.js"
+          "@swiftory/album-lover": "//localhost:8503/swiftory-album-lover.js",
+          "@swiftory/album-reputation": "//localhost:8504/swiftory-album-reputation.js"
         }
       }
     </script>
@@ -104,6 +105,9 @@
           </route>
           <route path="/album/lover">
             <application name="@swiftory/album-lover" loader="loverLoader" error="pageError"></application>
+          </route>
+          <route path="/album/reputation">
+            <application name="@swiftory/album-reputation" loader="reputationLoader" error="pageError"></application>
           </route>
         </main>
         <div>
