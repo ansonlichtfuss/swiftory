@@ -24,16 +24,18 @@ export const preloadImages: PreloadImagesType = async (
           const img = new Image();
           img.src = imgSrc;
           img.onload = () => {
-            finishedCount++;
+            if (percentUpdatedCallback !== undefined) {
+              finishedCount++;
 
-            // Round percents to remove decimals, or return zero (prevents NaN)
-            const newPercent =
-              Math.floor((finishedCount / totalLength) * 100) / 100 || 0;
+              // Round percents to remove decimals, or return zero (prevents NaN)
+              const newPercent =
+                Math.floor((finishedCount / totalLength) * 100) / 100 || 0;
 
-            // Effectively throttle return for noticeable change sizes
-            if (newPercent - prevPercent > 0.05 || newPercent === 1) {
-              percentUpdatedCallback(newPercent);
-              prevPercent = newPercent;
+              // Effectively throttle return for noticeable change sizes
+              if (newPercent - prevPercent > 0.05 || newPercent === 1) {
+                percentUpdatedCallback(newPercent);
+                prevPercent = newPercent;
+              }
             }
 
             // Finish the promise
