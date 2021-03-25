@@ -1,4 +1,5 @@
 import { AddToJukeboxButton } from '@swiftory/components';
+import { preloadImages } from '@swiftory/utils';
 import {
   AnimateLayoutFeature,
   AnimatePresence,
@@ -11,17 +12,26 @@ import { navigateToUrl } from 'single-spa';
 import { Carousel } from './components/carousel/Carousel';
 import { HeadingWrapper } from './components/heading/HeadingWrapper';
 import { SplashLoader } from './components/loader/SplashLoader';
+import { ALL_IMAGES } from './images';
 import { AnsonLichtfussLogo } from './svg/AnsonLichtfussLogo';
 
 export function App({ children }) {
   return { children };
 }
-export default function Root(props) {
-  const [showLoader, setShowLoader] = useState(false);
+export default function Root() {
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setShowLoader(false), 2000);
-  }, []);
+    async function initialLoad() {
+      await preloadImages(ALL_IMAGES);
+
+      // Allow for content to render beneath the loader before showing user
+      setTimeout(() => setShowLoader(false), 500);
+    }
+    if (showLoader) {
+      initialLoad();
+    }
+  }, [showLoader]);
 
   return (
     <MotionConfig

@@ -1,16 +1,20 @@
 import { AnimateSharedLayout, m } from 'framer-motion';
 import React, { useEffect, useMemo, useState } from 'react';
+import { FOLKLORE_COVER, LOVER_COVER, REPUTATION_COVER } from '../../images';
 import { CarouselCard } from './CarouselCard';
 
 const cards = [
   {
     id: 'folklore',
+    image: FOLKLORE_COVER,
   },
   {
     id: 'lover',
+    image: LOVER_COVER,
   },
   {
     id: 'reputation',
+    image: REPUTATION_COVER,
   },
 ];
 
