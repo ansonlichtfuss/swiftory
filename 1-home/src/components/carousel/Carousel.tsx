@@ -63,9 +63,9 @@ export const Carousel = () => {
         onClick={() =>
           selectedCard > 0 ? setSelectedCard((curr) => curr - 1) : null
         }
-        className={`absolute top-0 text-9xl font-medium text-white text-center z-10 h-full flex items-center justify-end px-24 transition-opacity hover:opacity-1 ${
+        className={`absolute top-0 text-9xl font-medium text-white text-center z-10 h-full flex items-center justify-end px-24 transition-opacity ${
           selectedCard > 0
-            ? 'opacity-70'
+            ? 'opacity-40 hover:opacity-100'
             : 'opacity-0 hover:opacity-0 cursor-default'
         }`}
         style={{ width: '200px', left: 'calc(50% - 400px)', outline: 'none' }}
@@ -80,9 +80,9 @@ export const Carousel = () => {
             ? setSelectedCard((curr) => curr + 1)
             : null
         }
-        className={`absolute top-0 text-9xl font-medium text-white text-center z-10 h-full flex items-center justify-start px-24 transition-opacity hover:opacity-1 ${
+        className={`absolute top-0 text-9xl font-medium text-white text-center z-10 h-full flex items-center justify-start px-24 transition-opacity ${
           selectedCard < cards.length - 1
-            ? 'opacity-70'
+            ? 'opacity-40 hover:opacity-100'
             : 'opacity-0 hover:opacity-0 cursor-default'
         }`}
         style={{ width: '200px', left: 'calc(50% + 200px)', outline: 'none' }}
