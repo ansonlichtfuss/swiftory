@@ -49,15 +49,17 @@ export const Carousel = () => {
 
   return (
     <m.div
-      className="relative"
+      className="relative w-full"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
       <div
-        className="absolute top-0 left-0 w-full h-full z-10"
+        className="absolute top-0 w-full h-full z-10"
         style={{
+          left: 'calc(50% - 600px)',
+          maxWidth: '1200px',
           background:
-            'linear-gradient(0.25turn, #000,#000, rgba(20,6,10,0),rgba(20,6,10,0),rgba(20,6,10,0), #000, #000)',
+            'linear-gradient(0.25turn, #000,#000, rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0), #000, #000)',
           pointerEvents: 'none',
         }}
       ></div>

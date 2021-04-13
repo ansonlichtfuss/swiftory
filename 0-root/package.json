@@ -43,10 +43,10 @@
     "webpack-merge": "^5.5.0"
   },
   "dependencies": {
-    "single-spa": "^5.8.2",
     "@types/jest": "^26.0.16",
     "@types/systemjs": "^6.1.0",
     "@types/webpack-env": "^1.16.0",
+    "single-spa": "^5.8.2",
     "single-spa-layout": "1.4.1"
   }
 }

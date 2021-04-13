@@ -13,7 +13,6 @@ import { Carousel } from './components/carousel/Carousel';
 import { HeadingWrapper } from './components/heading/HeadingWrapper';
 import { SplashLoader } from './components/loader/SplashLoader';
 import { ALL_IMAGES } from './images';
-import { AnsonLichtfussLogo } from './svg/AnsonLichtfussLogo';
 
 export function App({ children }) {
   return { children };
@@ -42,16 +41,21 @@ export default function Root() {
         style={{ background: '#000', minWidth: '100vw' }}
       >
         <AnimatePresence>{showLoader && <SplashLoader />}</AnimatePresence>
-        <HeadingWrapper />
-        <Carousel />
-        <p className="mt-2 text-sm text-center opacity-50">
-          Select an album to explore.
-          <br />
-          Click on artists to add their work to your jukebox.
-        </p>
+        <div
+          className="flex items-center justify-center flex-col"
+          style={{ minHeight: '80vh' }}
+        >
+          <HeadingWrapper />
+          <Carousel />
+          <p className="mt-2 text-sm text-center opacity-50">
+            Select an album to explore.
+            <br />
+            Click on artists to add their work to your jukebox.
+          </p>
+        </div>
         <div className="my-12"></div>
       </div>
-      <section className="flex items-center justify-center">
+      {/* <section className="flex items-center justify-center">
         <a
           href="https://www.ansonlichtfuss.com"
           className="author-card rounded border border-gray-800 px-8 py-5 flex flex-col items-center transition-colors hover:bg-gray-900"
@@ -67,7 +71,7 @@ export default function Root() {
           height: 48px;
         }
       `}</style>
-      </section>
+      </section> */}
       <section>
         <ul>
           <li>

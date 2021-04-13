@@ -69,6 +69,7 @@ export const CarouselCard = ({ data, layoutId, position, isSelected }) => {
             ? '#333'
             : `url(${CDN_URL}/carousel/${data.id}-cover.jpg) center center no-repeat`,
           backgroundSize: 'cover',
+          transform: 'scale(1.03)',
           transition: 'filter 0.3s ease',
         }}
       ></div>
