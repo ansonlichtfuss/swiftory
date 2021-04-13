@@ -2,20 +2,32 @@
 import { jukeboxEvents } from "@swiftory/utils";
 import { onDestroy, onMount } from "svelte";
 import { Route, Router } from "svelte-routing";
+import AlbumFoundModal from "./AlbumFoundModal.svelte";
 import BackToHomeLink from "./BackToHomeLink.svelte";
 import Dashboard from "./Dashboard.svelte";
 
-const testEventCallback = (e: Event) => {
-  testCount++;
+let allFoundKeys = [];
+let albumFoundKey = "";
+const setAlbumFoundKey = (key) => {
+  albumFoundKey = key;
+};
+
+export const handleAlbumFoundEvent = (e: Event) => {
+  albumFoundKey = e.detail.albumKey;
+  if (!allFoundKeys.includes(e.detail.albumKey)) {
+    allFoundKeys.push(e.detail.albumKey);
+  }
 };
 
 onMount(() => {
-  jukeboxEvents.attach("swiftory:test", testEventCallback);
+  jukeboxEvents.attach("swiftory:found_album", handleAlbumFoundEvent);
 });
 
 onDestroy(() => {
-  jukeboxEvents.cleanup("swiftory:test", testEventCallback);
+  jukeboxEvents.cleanup("swiftory:found_album", handleAlbumFoundEvent);
 });
+
+console.log("albumFoundKey", albumFoundKey);
 
 export let testCount = 0;
 </script>
@@ -30,7 +42,14 @@ export let testCount = 0;
 @tailwind utilities;
 </style>
 
-<Router>
-  <Route path="/" component="{Dashboard}" />
-  <Route path="/album/*" component="{BackToHomeLink}" />
-</Router>
+<div>
+  {#if albumFoundKey.length > 0}
+    <AlbumFoundModal
+      albumFoundKey="{albumFoundKey}"
+      setAlbumFoundKey="{setAlbumFoundKey}" />
+  {/if}
+  <Router>
+    <Route path="/" component="{Dashboard}" allFoundKeys="{allFoundKeys}" />
+    <Route path="/album/*" component="{BackToHomeLink}" />
+  </Router>
+</div>

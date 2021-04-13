@@ -1,13 +1,16 @@
 import { jukeboxEvents } from '@swiftory/utils';
 import React from 'react';
 
-export const AddToJukeboxButton = () => {
+export const AddToJukeboxButton = ({ albumKey, children }) => {
   return (
     <button
-      className="bg-green-500 text-white"
-      onClick={() => jukeboxEvents.dispatch('swiftory:test', { test: 'fun ' })}
+      onClick={() =>
+        jukeboxEvents.dispatch('swiftory:found_album', {
+          albumKey
+        })
+      }
     >
-      clikme from Components! Reusable!
+      {children}
     </button>
   );
 };

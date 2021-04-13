@@ -1,3 +1,4 @@
+import { AddToJukeboxButton } from '@swiftory/components';
 import { CDN_URL, preloadImages } from '@swiftory/utils';
 import {
   motion,
@@ -75,9 +76,11 @@ export default function Root(props) {
                 <p className="text-xl mb-3">
                   Taylor Swift's seventh album, Lover, pursues a lighter tone
                   from its predecessor. Producers such as{' '}
-                  <a href="#" className="font-black underline test">
-                    Jack Antonoff
-                  </a>
+                  <AddToJukeboxButton albumKey="jack_antonoff_melodrama">
+                    <span className="font-black underline test">
+                      Jack Antonoff
+                    </span>
+                  </AddToJukeboxButton>
                   ,{' '}
                   <a href="#" className="font-black underline test">
                     Louis Bell
