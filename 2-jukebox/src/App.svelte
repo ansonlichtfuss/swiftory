@@ -2,20 +2,27 @@
 import { jukeboxEvents } from "@swiftory/utils";
 import { onDestroy, onMount } from "svelte";
 import { Route, Router } from "svelte-routing";
+import AlbumAlreadyAddedModal from "./AlbumAlreadyAddedModal.svelte";
 import AlbumFoundModal from "./AlbumFoundModal.svelte";
 import BackToHomeLink from "./BackToHomeLink.svelte";
 import Dashboard from "./Dashboard.svelte";
 
 let allFoundKeys = [];
 let albumFoundKey = "";
+let showAlbumAlreadyFoundModal = false;
 const setAlbumFoundKey = (key) => {
   albumFoundKey = key;
 };
+const setShowAlbumAlreadyFoundModal = (value) => {
+  showAlbumAlreadyFoundModal = value;
+};
 
 export const handleAlbumFoundEvent = (e: Event) => {
-  albumFoundKey = e.detail.albumKey;
   if (!allFoundKeys.includes(e.detail.albumKey)) {
+    albumFoundKey = e.detail.albumKey;
     allFoundKeys.push(e.detail.albumKey);
+  } else {
+    showAlbumAlreadyFoundModal = true;
   }
 };
 
@@ -47,6 +54,10 @@ export let testCount = 0;
     <AlbumFoundModal
       albumFoundKey="{albumFoundKey}"
       setAlbumFoundKey="{setAlbumFoundKey}" />
+  {/if}
+  {#if showAlbumAlreadyFoundModal}
+    <AlbumAlreadyAddedModal
+      setShowAlbumAlreadyFoundModal="{setShowAlbumAlreadyFoundModal}" />
   {/if}
   <Router>
     <Route path="/" component="{Dashboard}" allFoundKeys="{allFoundKeys}" />
