@@ -82,17 +82,23 @@ export default function Root(props) {
                     </span>
                   </AddToJukeboxButton>
                   ,{' '}
-                  <a href="#" className="font-black underline test">
-                    Louis Bell
-                  </a>
+                  <AddToJukeboxButton albumKey="louis_bell_calm">
+                    <span className="font-black underline test">
+                      Louis Bell
+                    </span>
+                  </AddToJukeboxButton>
                   ,{' '}
-                  <a href="#" className="font-black underline test">
-                    Frank Dukes
-                  </a>
+                  <AddToJukeboxButton albumKey="frank_dukes_calm">
+                    <span className="font-black underline test">
+                      Frank Dukes
+                    </span>
+                  </AddToJukeboxButton>
                   , and{' '}
-                  <a href="#" className="font-black underline test">
-                    Joel Little
-                  </a>{' '}
+                  <AddToJukeboxButton albumKey="joel_little_busyhead">
+                    <span className="font-black underline test">
+                      Joel Little
+                    </span>
+                  </AddToJukeboxButton>
                   helped with the project.
                 </p>
                 <p className="text-xl mb-3">
