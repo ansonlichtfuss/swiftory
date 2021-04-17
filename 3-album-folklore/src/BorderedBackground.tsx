@@ -17,10 +17,13 @@ export const BorderedBackground = (): JSX.Element => {
   const boxShadowWidth = useTransform(
     scrollY,
     [0, 200],
-    ['0 0 0 0px #fff inset', '0 0 0 1px #fff inset']
+    [
+      '0 0 0 1px rgba(255,255,255,0) inset',
+      '0 0 0 1px rgba(255,255,255,1) inset',
+    ]
   );
   const bgSize = useTransform(scrollY, [0, 200], [1.1, 1]);
-  const bgOpacity = useTransform(scrollY, [0, 200], [1, 0.5]);
+  const bgOpacity = useTransform(scrollY, [0, 200], [1, 0.4]);
 
   return (
     <>

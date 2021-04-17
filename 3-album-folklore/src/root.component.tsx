@@ -1,3 +1,4 @@
+import { AddToJukeboxButton } from '@swiftory/components';
 import { CDN_URL, preloadImages } from '@swiftory/utils';
 import {
   motion,
@@ -90,37 +91,49 @@ export default function Root(props) {
             >
               <motion.div style={{ opacity: showText1 }}>
                 <p className="text-xl mb-3">
-                  Taylor Swift's seventh album, Lover, pursues a lighter tone
-                  from its predecessor. Producers such as{' '}
-                  <a href="#" className="font-black underline test">
-                    Jack Antonoff
-                  </a>
-                  ,{' '}
-                  <a href="#" className="font-black underline test">
-                    Louis Bell
-                  </a>
-                  ,{' '}
-                  <a href="#" className="font-black underline test">
-                    Frank Dukes
-                  </a>
-                  , and{' '}
-                  <a href="#" className="font-black underline test">
-                    Joel Little
-                  </a>{' '}
-                  helped with the project.
+                  <em>Folklore</em>, released as a surprise album on July 24,
+                  2020, written as a series of ballads, evoking a distinct
+                  romanticism through its unique characters, stories, and an
+                  indie folk sound.
+                </p>
+
+                <p className="text-xl mb-3">
+                  The album's change from Taylor's more traditional
+                  autobiographical approach was produced by{' '}
+                  <AddToJukeboxButton albumKey="aaron_dessner_sleep_well_beast">
+                    <span className="font-black underline test">
+                      Aaron Dessner
+                    </span>
+                  </AddToJukeboxButton>{' '}
+                  and{' '}
+                  <AddToJukeboxButton albumKey="jack_antonoff_some_nights">
+                    <span className="font-black underline test">
+                      Jack Antonoff
+                    </span>
+                  </AddToJukeboxButton>
+                  . It featured guest artist Bon Iver, who's founder,{' '}
+                  <AddToJukeboxButton albumKey="justin_vernon_22_a_million">
+                    <span className="font-black underline test">
+                      Justin Vernon
+                    </span>
+                  </AddToJukeboxButton>{' '}
+                  helped write the track "Exile".
                 </p>
                 <p className="text-xl mb-3">
-                  With over 450,000 copies sold on its first day, it later
-                  became the world's best selling album by a female artist.
+                  Created during the COVID-19 pandemic, most of the work was
+                  done remotely and in strict secrecy. Taylor's label didn't
+                  know about the album until hours ahead of its scheduled
+                  launch.
                 </p>
                 <p className="text-xl mb-3">
-                  Winning every American Music Award (AMA) it was nominated for,
-                  Swift took her place as the most awarded artist in the AMAs
-                  history.
+                  <em>Folklore</em> set a new Guinness World Record for a female
+                  act's opening day on Spotify. It quickly became the
+                  best-selling album of 2020.
                 </p>
                 <p className="text-xl">
-                  The ensuing tour, Lover Fest, was cancelled due to a worldwide
-                  pandemic.
+                  Receiving sweeping critical acclaim, the album made Taylor the
+                  first female artist to win the Grammy Award's Album of the
+                  Year award three times.
                 </p>
               </motion.div>
             </div>
