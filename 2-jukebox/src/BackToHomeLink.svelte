@@ -2,6 +2,7 @@
 import { navigateToUrl } from "single-spa";
 
 const doNavigate = (e) => {
+  window.scrollTo(0, 0);
   navigateToUrl(e);
 };
 </script>
