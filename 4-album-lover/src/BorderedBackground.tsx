@@ -17,7 +17,7 @@ export const BorderedBackground = (): JSX.Element => {
   const boxShadowWidth = useTransform(
     scrollY,
     [0, 200],
-    ['0 0 0 0px #fff inset', '0 0 0 2px #fff inset']
+    ['0 0 0 0px #fff inset', '0 0 0 1px #fff inset']
   );
 
   return (

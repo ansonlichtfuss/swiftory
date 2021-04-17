@@ -5,7 +5,7 @@ import { HeadingSubtext } from './HeadingSubtext';
 
 export const HeadingWrapper = () => {
   return (
-    <div className="flex items-center justify-between heading-section mb-12 w-full max-w-4xl mt-6">
+    <div className="flex items-center justify-between heading-section mb-2 w-full max-w-4xl ">
       <div className="flex flex-col justify-center items-start p-10">
         <HeadingSubtext>A visual history</HeadingSubtext>
         <HeadingHero />

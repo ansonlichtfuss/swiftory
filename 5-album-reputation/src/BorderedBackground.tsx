@@ -24,7 +24,7 @@ export const BorderedBackground = (): JSX.Element => {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-full h-full z-2"
+        className="fixed top-0 left-0 w-full h-full"
         style={{
           opacity: bgOpacity,
           background: `url(${IMAGE_BACKGROUND_URL}) center center no-repeat`,

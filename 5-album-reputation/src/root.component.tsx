@@ -53,14 +53,14 @@ export default function Root(props) {
       {isDoneShowContent && (
         <>
           <Hero />
-          <div className="relative" style={{ zIndex: 0 }}>
+          <div className="relative">
             <BorderedBackground />
           </div>
           <Logo />
-          <div className="fixed top-0 left-0 w-full h-full z-0 flex items-center justify-center">
+          <div className="fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center">
             <div
-              className="max-w-prose w-full"
-              style={{ opacity: 0.9, color: 'hsl(318,23%,20%)' }}
+              className="max-w-prose w-full text-black"
+              style={{ opacity: 0.9 }}
             >
               <motion.div style={{ opacity: showText1 }}>
                 <p className="text-xl mb-3">

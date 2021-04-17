@@ -25,7 +25,7 @@ export default function Root() {
         <SplashLoader />
         <div
           className="flex items-center justify-center flex-col"
-          style={{ minHeight: '80vh' }}
+          style={{ minHeight: '88vh' }}
         >
           <HeadingWrapper />
           <Carousel />

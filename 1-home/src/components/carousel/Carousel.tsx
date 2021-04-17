@@ -83,7 +83,8 @@ export const Carousel = () => {
         className="absolute top-0 w-full h-full z-10"
         style={{
           left: 'calc(50% - 600px)',
-          maxWidth: '1200px',
+
+          width: '1200px',
           background:
             'linear-gradient(0.25turn, #000,#000, rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0), #000, #000)',
           pointerEvents: 'none',

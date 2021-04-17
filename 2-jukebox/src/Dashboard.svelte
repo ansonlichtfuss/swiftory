@@ -8,7 +8,7 @@ let emptyAlbumArray = new Array(Object.keys(albumData).length).fill("");
 </script>
 
 <div>
-  <section class="py-24 px-4 w-full">
+  <section class="pb-12 px-4 w-full">
     <div
       class="flex flex-col items-center justify-center w-full max-w-xl mx-auto">
       <div class="relative" style="width:200px;z-index:1;margin-bottom:-85px;">
@@ -26,11 +26,11 @@ let emptyAlbumArray = new Array(Object.keys(albumData).length).fill("");
             <strong>{emptyAlbumArray.length}</strong>
             albums found</span>
         </div>
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-2 gap-x-6">
           {#each emptyAlbumArray as albumPlaceholder, index}
             <div class="flex items-center my-2">
               <div
-                class="rounded-sm overflow-hidden"
+                class="rounded-sm overflow-hidden flex-shrink-0"
                 style="width:50px;height:50px;background:#261e1a;">
                 {#if allFoundKeys[index]}
                   <img
@@ -38,7 +38,7 @@ let emptyAlbumArray = new Array(Object.keys(albumData).length).fill("");
                     alt="{albumData[allFoundKeys[index]].album}" />
                 {/if}
               </div>
-              <div class="flex flex-col flex-grow justify-center ml-4">
+              <div class="flex flex-col flex-grow justify-center pl-4">
                 {#if allFoundKeys[index]}
                   <strong>{albumData[allFoundKeys[index]].album}</strong>
                   <small>by
@@ -46,7 +46,7 @@ let emptyAlbumArray = new Array(Object.keys(albumData).length).fill("");
                 {:else}
                   <div
                     class="rounded mb-2"
-                    style="width:150px;height:1rem;background:#261e1a;"></div>
+                    style="width:100%;height:1rem;background:#261e1a;"></div>
                   <div
                     class="rounded"
                     style="width:50px;height:1rem;background:#261e1a;"></div>
