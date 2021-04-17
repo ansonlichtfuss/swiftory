@@ -74,8 +74,8 @@ export default function Root(props) {
             >
               <motion.div style={{ opacity: showText1 }}>
                 <p className="text-xl mb-3">
-                  Taylor Swift's seventh album, Lover, pursues a lighter tone
-                  from its predecessor. Producers such as{' '}
+                  Taylor Swift's seventh album, <em>Lover</em>, pursues a
+                  lighter tone from its predecessor. Producers such as{' '}
                   <AddToJukeboxButton albumKey="jack_antonoff_melodrama">
                     <span className="font-black underline test">
                       Jack Antonoff
