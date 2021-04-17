@@ -35,7 +35,9 @@ let thisData = albumData[albumFoundKey];
       <div
         class="overflow-hidden rounded-full mr-6"
         style="min-width:150px;width:150px;height:150px;">
-        <img src="{`${CDN_URL}/jukebox/albums/${thisData.cover}`}" />
+        <img
+          src="{`${CDN_URL}/jukebox/albums/${thisData.cover}`}"
+          alt="{thisData.album}" />
       </div>
       <div>
         You just found<br />
