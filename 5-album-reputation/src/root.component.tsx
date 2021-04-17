@@ -1,3 +1,4 @@
+import { AddToJukeboxButton } from '@swiftory/components';
 import { preloadImages } from '@swiftory/utils';
 import {
   motion,
@@ -63,37 +64,39 @@ export default function Root(props) {
             >
               <motion.div style={{ opacity: showText1 }}>
                 <p className="text-xl mb-3">
-                  Taylor Swift's seventh album, Lover, pursues a lighter tone
-                  from its predecessor. Producers such as{' '}
-                  <a href="#" className="font-black underline test">
-                    Jack Antonoff
-                  </a>
-                  ,{' '}
-                  <a href="#" className="font-black underline test">
-                    Louis Bell
-                  </a>
-                  ,{' '}
-                  <a href="#" className="font-black underline test">
-                    Frank Dukes
-                  </a>
-                  , and{' '}
-                  <a href="#" className="font-black underline test">
-                    Joel Little
-                  </a>{' '}
-                  helped with the project.
+                  <em>Reputation</em> came to light during a particularly
+                  controversial time in Taylor Swift's life, speaking of gossip
+                  and love in a turbulent world.
                 </p>
                 <p className="text-xl mb-3">
-                  With over 450,000 copies sold on its first day, it later
-                  became the world's best selling album by a female artist.
+                  The album features a limited set of producers and writers who
+                  contributed to the previous album, <em>1989</em>, including{' '}
+                  <AddToJukeboxButton albumKey="jack_antonoff_chemtrails_over_the_country_club">
+                    <span className="font-black underline test">
+                      Jack Antonoff
+                    </span>
+                  </AddToJukeboxButton>{' '}
+                  and Swedish producers{' '}
+                  <AddToJukeboxButton albumKey="shellback_25">
+                    <span className="font-black underline test">Shellback</span>
+                  </AddToJukeboxButton>{' '}
+                  and{' '}
+                  <AddToJukeboxButton albumKey="max_martin_after_hours">
+                    <span className="font-black underline test">
+                      Max Martin
+                    </span>
+                  </AddToJukeboxButton>
+                  .
                 </p>
                 <p className="text-xl mb-3">
-                  Winning every American Music Award (AMA) it was nominated for,
-                  Swift took her place as the most awarded artist in the AMAs
-                  history.
+                  The accompanying Reputation Stadium Tour became the
+                  highest-grossing North American tour in history.
                 </p>
-                <p className="text-xl">
-                  The ensuing tour, Lover Fest, was cancelled due to a worldwide
-                  pandemic.
+                <p className="text-xl mb-3">
+                  Spending more than three weeks at the top of{' '}
+                  <em>Billboard</em> 200, <em>Reputation</em> made Taylor the
+                  first artist in history with four albums selling more than a
+                  million copies in their first week of release.
                 </p>
               </motion.div>
             </div>

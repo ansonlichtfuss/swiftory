@@ -15,11 +15,17 @@ type Props = {};
 export const Logo = (): JSX.Element => {
   const { scrollY } = useViewportScroll();
   const logoScale = useTransform(scrollY, [0, 200], [1, 0.4]);
+  const logoX = useTransform(scrollY, [0, 200], [-400, 0]);
+  const logoY = useTransform(
+    scrollY,
+    [0, 200],
+    [window.innerHeight * 0.125, 50]
+  );
 
   return (
     <motion.div
-      style={{ scale: logoScale }}
-      className="flex items-center fixed top-0 w-full origin-top-left mt-24 ml-12"
+      style={{ scale: logoScale, x: logoX, y: logoY }}
+      className="flex items-center justify-center fixed top-0 left-0 w-full origin-top-center"
     >
       <img src={IMAGE_LOGO_URL} style={{ height: '80px' }} alt="Reputation" />
     </motion.div>
