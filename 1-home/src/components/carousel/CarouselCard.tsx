@@ -47,7 +47,7 @@ export const CarouselCard = ({ data, layoutId, position, isSelected }) => {
         opacity: isSelected ? 1 : 0.4,
       }}
       transition={{
-        duration: 0.5,
+        duration: 0.4,
         ease: [0.65, 0, 0.35, 1],
       }}
       style={{
