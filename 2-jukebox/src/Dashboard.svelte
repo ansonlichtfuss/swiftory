@@ -48,7 +48,7 @@ let emptyAlbumArray = new Array(21).fill("");
         target="_blank"
         rel="noreferrer"><strong>Anson Lichtfuss</strong></a>.
     </p>
-    <p class="text-gray-500">
+    <p class="text-gray-500 mb-0">
       <small>Jukebox icon made by
         <a
           href="https://www.freepik.com"
@@ -58,7 +58,8 @@ let emptyAlbumArray = new Array(21).fill("");
         <a
           href="https://www.flaticon.com/"
           target="_blank"
-          rel="noreferrer">www.flaticon.com</a></small>
+          rel="noreferrer">www.flaticon.com</a></small><br />
+      <small>Content and statistics sourced from Wikipedia</small>
     </p>
   </section>
 </div>
