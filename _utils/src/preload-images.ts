@@ -3,7 +3,7 @@
  */
 type PreloadImagesType = (
   arrayOfImgSrc: string[],
-  percentUpdatedCallback: (number) => void
+  percentUpdatedCallback?: (number) => void
 ) => Promise<HTMLImageElement[]>;
 
 /**

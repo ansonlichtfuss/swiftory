@@ -98,7 +98,7 @@ export default function Root(props) {
                     <span className="font-black underline test">
                       Joel Little
                     </span>
-                  </AddToJukeboxButton>
+                  </AddToJukeboxButton>{' '}
                   helped with the project.
                 </p>
                 <p className="text-xl mb-3">

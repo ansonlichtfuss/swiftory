@@ -1,11 +1,8 @@
 declare module '@swiftory/utils' {
-  export type EventKey = 'swiftory:add_album' | 'swiftory:test';
+  export type EventKey = 'swiftory:found_album' | 'swiftory:test';
   export type EventBody =
     | {
-        name: string;
-        artist: string;
-        thumbnail: string;
-        releaseYear: number;
+        albumKey: string;
       }
     | { test: string };
 
@@ -16,4 +13,11 @@ declare module '@swiftory/utils' {
   }
 
   const jukeboxEvents: EventMethods;
+
+  const CDN_URL: string;
+
+  const preloadImages: (
+    arrayOfImgSrc: string[],
+    percentUpdatedCallback?: (number) => void
+  ) => Promise<HTMLImageElement[]>;
 }
