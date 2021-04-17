@@ -1,12 +1,16 @@
 <script lang="ts">
-import { jukeboxEvents } from "@swiftory/utils";
+import { CDN_URL, jukeboxEvents, preloadImages } from "@swiftory/utils";
 import { onDestroy, onMount } from "svelte";
 import { Route, Router } from "svelte-routing";
+import albumData from "./album-data";
 import AlbumAlreadyAddedModal from "./AlbumAlreadyAddedModal.svelte";
 import AlbumFoundModal from "./AlbumFoundModal.svelte";
 import BackToHomeLink from "./BackToHomeLink.svelte";
 import Dashboard from "./Dashboard.svelte";
 
+/**
+ * Album key simple state management
+ */
 let allFoundKeys = [];
 let albumFoundKey = "";
 let showAlbumAlreadyFoundModal = false;
@@ -26,17 +30,21 @@ export const handleAlbumFoundEvent = (e: Event) => {
   }
 };
 
-onMount(() => {
+onMount(async () => {
   jukeboxEvents.attach("swiftory:found_album", handleAlbumFoundEvent);
+
+  /**
+   * Preload album artwork
+   */
+  const albumArtworkUrlArray = Object.keys(albumData).map(
+    (albumKey) => `${CDN_URL}/jukebox/albums/${albumData[albumKey].cover}`
+  );
+  await preloadImages(albumArtworkUrlArray);
 });
 
 onDestroy(() => {
   jukeboxEvents.cleanup("swiftory:found_album", handleAlbumFoundEvent);
 });
-
-console.log("albumFoundKey", albumFoundKey);
-
-export let testCount = 0;
 </script>
 
 <style global lang="postcss">
