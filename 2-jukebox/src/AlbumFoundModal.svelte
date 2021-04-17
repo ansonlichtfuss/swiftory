@@ -21,7 +21,7 @@ let thisData = albumData[albumFoundKey];
   }}"
   transition:fade="{{ duration: 200 }}">
   <div
-    class="flex items-center justify-center rounded-xl relative"
+    class="flex items-center justify-center rounded-xl relative max-w-3xl"
     style="background:rgba(0,0,0,1);">
     <div class="absolute" style="z-index:0;width:300px;">
       <Jukebox />
@@ -34,7 +34,7 @@ let thisData = albumData[albumFoundKey];
       -webkit-backdrop-filter: blur(10px);">
       <div
         class="overflow-hidden rounded-full mr-6"
-        style="width:150px;height:150px;">
+        style="min-width:150px;width:150px;height:150px;">
         <img src="{`${CDN_URL}/jukebox/albums/${thisData.cover}`}" />
       </div>
       <div>
