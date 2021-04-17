@@ -12,8 +12,8 @@ const data: HTMLLayoutData = {
     folkloreLoader: `<div style="position:fixed;top:0;left:0;z-index:9999;width:100%;height:100%;background:#A7A7A7;"></div>`,
     loverLoader: `<div style="position:fixed;top:0;left:0;z-index:9999;width:100%;height:100%;background:hsl(318,23%,20%);"></div>`,
     reputationLoader: `<div style="position:fixed;top:0;left:0;z-index:9999;width:100%;height:100%;background:#fff;"></div>`,
-    homepageLoader: `<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;align-items:center;justify-content:center;"></div>`,
-    jukeboxLoader: `<div class="placeholder">ya LOAD le jukebox</div>`,
+    homepageLoader: `<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;"></div>`,
+    jukeboxLoader: `<div />`,
   },
   errors: {
     pageError: "<h3>hmm, this page didn't load right</h3>",
