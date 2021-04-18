@@ -9,7 +9,6 @@ export const jukeboxEvents: EventMethods = {
       throw new TypeError('Invalid event body for dispatch.');
     }
 
-    console.log('jukeboxEvents dispatch');
     const event = new CustomEvent(eventKey, { detail: eventBody });
     window.dispatchEvent(event);
   },
@@ -21,7 +20,6 @@ export const jukeboxEvents: EventMethods = {
       throw new TypeError('A callback is required to attach to an event.');
     }
 
-    console.log('jukeboxEvents attach');
     window.addEventListener(eventKey, callback);
   },
   cleanup: (eventKey, callback) => {
@@ -32,7 +30,6 @@ export const jukeboxEvents: EventMethods = {
       throw new TypeError('A callback is required to clean up from an event.');
     }
 
-    console.log('jukeboxEvents cleanup');
     window.removeEventListener(eventKey, callback);
   },
 };
