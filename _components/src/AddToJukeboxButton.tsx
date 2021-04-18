@@ -12,6 +12,7 @@ export const AddToJukeboxButton = ({
 }: AddToJukeboxButtonProps): React.FunctionComponent => {
   return (
     <button
+      style={{ outline: 'none' }}
       onClick={() =>
         jukeboxEvents.dispatch('swiftory:found_album', {
           albumKey,
