@@ -33,7 +33,7 @@ let thisData = albumData[albumFoundKey];
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);">
       <div
-        class="overflow-hidden rounded-full mr-6"
+        class="overflow-hidden rounded-lg mr-6"
         style="min-width:150px;width:150px;height:150px;">
         <img
           src="{`${CDN_URL}/jukebox/albums/${thisData.cover}`}"
