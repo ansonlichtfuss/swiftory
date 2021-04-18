@@ -59,8 +59,11 @@
     "@types/systemjs": "^6.1.0",
     "@types/webpack-env": "^1.16.0",
     "framer-motion": "^3.10.3",
+    "postcss": "^8.2.6",
+    "postcss-loader": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "serve": "^11.3.2"
+    "serve": "^11.3.2",
+    "tailwindcss": "^2.0.3"
   }
 }
