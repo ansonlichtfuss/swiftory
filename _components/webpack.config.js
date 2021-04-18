@@ -18,6 +18,7 @@ module.exports = (webpackConfigEnv, argv) => {
     },
   })(defaultConfig, {
     // modify the webpack config however you'd like to by adding to this object
+    externals: ['react', 'framer-motion', 'single-spa'],
     module: {
       rules: [
         {

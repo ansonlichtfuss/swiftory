@@ -1,19 +1,20 @@
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import livereload from 'rollup-plugin-livereload';
-import svelte from 'rollup-plugin-svelte';
-import { terser } from 'rollup-plugin-terser';
-import sveltePreprocess from 'svelte-preprocess';
+import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
+import livereload from "rollup-plugin-livereload";
+import svelte from "rollup-plugin-svelte";
+import { terser } from "rollup-plugin-terser";
+import sveltePreprocess from "svelte-preprocess";
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: 'src/swiftory-jukebox.ts',
+  external: ["single-spa", "@swiftory/utils"],
+  input: "src/swiftory-jukebox.ts",
   output: {
     sourcemap: true,
-    format: 'system',
+    format: "system",
     name: null, // ensure anonymous System.register
-    file: 'dist/swiftory-jukebox.js',
+    file: "dist/swiftory-jukebox.js",
   },
   plugins: [
     svelte({
@@ -25,9 +26,9 @@ export default {
         sourceMap: !production,
         postcss: {
           plugins: [
-            require('tailwindcss'),
-            require('autoprefixer'),
-            require('postcss-nesting'),
+            require("tailwindcss"),
+            require("autoprefixer"),
+            require("postcss-nesting"),
           ],
         },
       }),
@@ -41,7 +42,7 @@ export default {
     // https://github.com/rollup/plugins/tree/master/packages/commonjs
     resolve({
       browser: true,
-      dedupe: ['svelte'],
+      dedupe: ["svelte"],
     }),
     commonjs(),
 
@@ -51,7 +52,7 @@ export default {
 
     // Watch the `dist` directory and refresh the
     // browser on changes when not in production
-    !production && livereload('dist'),
+    !production && livereload("dist"),
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
@@ -70,11 +71,11 @@ function serve() {
       if (!started) {
         started = true;
 
-        require('child_process').spawn(
-          'npm',
-          ['run', 'serve', '--', '--dev', '--port 8501'],
+        require("child_process").spawn(
+          "npm",
+          ["run", "serve", "--", "--dev", "--port 8501"],
           {
-            stdio: ['ignore', 'inherit', 'inherit'],
+            stdio: ["ignore", "inherit", "inherit"],
             shell: true,
           }
         );
