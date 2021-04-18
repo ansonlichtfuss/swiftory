@@ -1,10 +1,12 @@
 {
   "imports": {
     "@swiftory/root-config": "/swiftory-root-config.js",
-    "@swiftory/components": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/swiftory-components.js",
-    "@swiftory/utils": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/swiftory-utils.js",
-    "@swiftory/home": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/swiftory-home.js",
-    "@swiftory/jukebox": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/swiftory-jukebox.js",
-    "@swiftory/album-folklore": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/swiftory-album-folklore.js"
+    "@swiftory/components": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/_components/swiftory-components.js",
+    "@swiftory/utils": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/_utils/swiftory-utils.js",
+    "@swiftory/home": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/1-home/swiftory-home.js",
+    "@swiftory/jukebox": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/2-jukebox/swiftory-jukebox.js",
+    "@swiftory/album-folklore": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/3-album-folklore/swiftory-album-folklore.js",
+    "@swiftory/album-lover": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/4-album-lover/swiftory-album-lover.js",
+    "@swiftory/album-reputation": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/5-album-reputation/swiftory-album-reputation.js"
   }
 }
