@@ -6,7 +6,7 @@ export let setShowAlbumAlreadyFoundModal;
 
 <span
   class="fixed top-0 left-0 w-full h-full flex items-center justify-center"
-  style="background:rgba(0,0,0,0.6);z-index:9999;"
+  style="background:rgba(0,0,0,0.8);z-index:9999;"
   on:click="{() => {
     setShowAlbumAlreadyFoundModal(false);
   }}"

@@ -7,6 +7,7 @@ import AlbumAlreadyAddedModal from "./AlbumAlreadyAddedModal.svelte";
 import AlbumFoundModal from "./AlbumFoundModal.svelte";
 import BackToHomeLink from "./BackToHomeLink.svelte";
 import Dashboard from "./Dashboard.svelte";
+import MobileWarning from "./MobileWarning.svelte";
 
 /**
  * Album key simple state management
@@ -21,7 +22,7 @@ const setShowAlbumAlreadyFoundModal = (value) => {
   showAlbumAlreadyFoundModal = value;
 };
 
-export const handleAlbumFoundEvent = (e: Event) => {
+export const handleAlbumFoundEvent = (e) => {
   if (!allFoundKeys.includes(e.detail.albumKey)) {
     albumFoundKey = e.detail.albumKey;
     allFoundKeys.push(e.detail.albumKey);
@@ -67,6 +68,7 @@ onDestroy(() => {
     <AlbumAlreadyAddedModal
       setShowAlbumAlreadyFoundModal="{setShowAlbumAlreadyFoundModal}" />
   {/if}
+  <MobileWarning />
   <Router>
     <Route path="/" component="{Dashboard}" allFoundKeys="{allFoundKeys}" />
     <Route path="/album/*" component="{BackToHomeLink}" />
