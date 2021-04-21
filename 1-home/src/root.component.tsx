@@ -18,22 +18,21 @@ export default function Root() {
     <MotionConfig
       features={[AnimationFeature, ExitFeature, AnimateLayoutFeature]}
     >
-      <div
-        className="relative top-0 left-0 z-50"
-        style={{ background: '#000', minWidth: '100vw' }}
-      >
+      <div className="relative" style={{ background: '#000' }}>
         <SplashLoader />
         <div
-          className="flex items-center justify-center flex-col"
-          style={{ minHeight: '88vh', overflowX: 'hidden' }}
+          className="flex items-center flex-col"
+          style={{ minHeight: 'calc(100vh - 100px)', overflowX: 'hidden' }}
         >
           <HeadingWrapper />
-          <Carousel />
-          <p className="mt-2 text-sm text-center opacity-50">
-            Select an album to explore.
-            <br />
-            Click on artists to add their work to your jukebox.
-          </p>
+          <section className="flex-grow flex flex-col justify-center">
+            <Carousel />
+            <p className="mt-2 text-sm text-center opacity-50">
+              Select an album to explore.
+              <br />
+              Click on artists to add their work to your jukebox.
+            </p>
+          </section>
         </div>
         <div className="my-12"></div>
       </div>

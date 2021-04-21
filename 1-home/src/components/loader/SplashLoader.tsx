@@ -36,7 +36,7 @@ export const SplashLoader = () => {
       {showLoader && (
         <m.div
           key="splashLoader"
-          className="splashLoader fixed bg-black top-0 left-0 w-full h-full flex items-center justify-center z-50"
+          className="splashLoader fixed bg-black top-0 left-0 w-screen h-screen flex items-center justify-center z-50"
           animate={{
             opacity: 1,
           }}
