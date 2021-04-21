@@ -1,5 +1,6 @@
 import { AnimateSharedLayout, m } from 'framer-motion';
 import React, { useEffect, useMemo, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { FOLKLORE_COVER, LOVER_COVER, REPUTATION_COVER } from '../../images';
 import { CarouselCard } from './CarouselCard';
 
@@ -41,6 +42,11 @@ const getCard = (index) => {
 };
 
 export const Carousel = () => {
+  const isSmallScreen = useMediaQuery({
+    query: '(max-height: 900px)',
+  });
+  const rootCardDimension = isSmallScreen ? 400 : 600;
+
   // Always start one album behind, so we have a consistent
   // initialization animation every time.
   const [selectedAlbum, setSelectedAlbum] = useState(
@@ -82,9 +88,8 @@ export const Carousel = () => {
       <div
         className="absolute top-0 w-full h-full z-10"
         style={{
-          left: 'calc(50% - 600px)',
-
-          width: '1200px',
+          left: `calc(50% - ${rootCardDimension * 1.5}px)`,
+          width: `${rootCardDimension * 3}px`,
           background:
             'linear-gradient(0.25turn, #000,#000, rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0), #000, #000)',
           pointerEvents: 'none',
@@ -99,7 +104,11 @@ export const Carousel = () => {
             ? 'opacity-40 hover:opacity-100'
             : 'opacity-0 hover:opacity-0 cursor-default'
         }`}
-        style={{ width: '200px', left: 'calc(50% - 400px)', outline: 'none' }}
+        style={{
+          width: `${rootCardDimension / 2}px`,
+          left: `calc(50% - ${rootCardDimension}px)`,
+          outline: 'none',
+        }}
       >
         &lang;
       </button>
@@ -114,16 +123,19 @@ export const Carousel = () => {
             ? 'opacity-40 hover:opacity-100'
             : 'opacity-0 hover:opacity-0 cursor-default'
         }`}
-        style={{ width: '200px', left: 'calc(50% + 200px)', outline: 'none' }}
+        style={{
+          width: `${rootCardDimension / 2}px`,
+          left: `calc(50% + ${rootCardDimension / 2}px)`,
+          outline: 'none',
+        }}
       >
         &rang;
       </button>
-
       <AnimateSharedLayout>
         <div
           style={{
-            height: 400,
-            perspective: '1000px',
+            height: rootCardDimension,
+            perspective: `${rootCardDimension * 2}px`,
           }}
         >
           {thisSet.map((card, index) => {
@@ -140,6 +152,7 @@ export const Carousel = () => {
                 layoutId={thisCard.id}
                 position={index}
                 isSelected={index === 2}
+                rootCardDimension={rootCardDimension}
               ></CarouselCard>
             );
           })}

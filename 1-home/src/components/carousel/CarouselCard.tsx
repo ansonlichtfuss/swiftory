@@ -3,35 +3,41 @@ import { m } from 'framer-motion';
 import React from 'react';
 import { navigateToUrl } from 'single-spa';
 
-const style = {
-  0: {
-    rotateY: -55,
-    scale: 0.7,
-    x: -500,
-  },
-  1: {
-    rotateY: -40,
-    scale: 0.86,
-    x: -330,
-  },
-  2: {
-    rotateY: 0,
-    scale: 1,
-    x: 0,
-  },
-  3: {
-    rotateY: 40,
-    scale: 0.86,
-    x: 330,
-  },
-  4: {
-    rotateY: 55,
-    scale: 0.7,
-    x: 500,
-  },
-};
+export const CarouselCard = ({
+  data,
+  layoutId,
+  position,
+  isSelected,
+  rootCardDimension,
+}) => {
+  const style = {
+    0: {
+      rotateY: -55,
+      scale: 0.7,
+      x: -(rootCardDimension * 1.25),
+    },
+    1: {
+      rotateY: -40,
+      scale: 0.86,
+      x: -(rootCardDimension * 0.825),
+    },
+    2: {
+      rotateY: 0,
+      scale: 1,
+      x: 0,
+    },
+    3: {
+      rotateY: 40,
+      scale: 0.86,
+      x: rootCardDimension * 0.825,
+    },
+    4: {
+      rotateY: 55,
+      scale: 0.7,
+      x: rootCardDimension * 1.25,
+    },
+  };
 
-export const CarouselCard = ({ data, layoutId, position, isSelected }) => {
   return (
     <m.a
       layout
@@ -51,9 +57,9 @@ export const CarouselCard = ({ data, layoutId, position, isSelected }) => {
         ease: [0.65, 0, 0.35, 1],
       }}
       style={{
-        width: 400,
-        height: 400,
-        marginLeft: -200,
+        width: rootCardDimension,
+        height: rootCardDimension,
+        marginLeft: -(rootCardDimension / 2),
         transformOrigin: 'center',
         background: position === 2 ? '#fff' : '',
         pointerEvents: position === 2 ? 'auto' : 'none',
