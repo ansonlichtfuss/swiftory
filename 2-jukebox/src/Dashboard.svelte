@@ -62,7 +62,7 @@ let emptyAlbumArray = new Array(Object.keys(albumData).length).fill("");
     <p>
       An experimental micro frontend app from
       <a
-        href="https://www.freepik.com"
+        href="https://www.ansonlichtfuss.com"
         target="_blank"
         rel="noreferrer"><strong>Anson Lichtfuss</strong></a>.
     </p>
