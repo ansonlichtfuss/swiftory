@@ -1,11 +1,17 @@
 import { jukeboxEvents } from '@swiftory/utils';
 import React from 'react';
 
+/**
+ * Prop Types
+ */
 type AddToJukeboxButtonProps = {
   albumKey: string;
   children: React.ReactNode;
 };
 
+/**
+ * Component
+ */
 export const AddToJukeboxButton = ({
   albumKey,
   children,

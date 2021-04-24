@@ -7,6 +7,9 @@ import { Hero, IMAGE_HERO_URL } from './Hero';
 import { LineLoader } from './LineLoader';
 import { IMAGE_LOGO_URL, Logo } from './Logo';
 
+/**
+ * Component
+ */
 export default function Root() {
   const { scrollY } = useSpringScroll();
 
@@ -15,18 +18,12 @@ export default function Root() {
   const [isLoading, setIsLoading] = useState(true);
   const [isDoneShowContent, setIsDoneShowContent] = useState(false);
   const loadingPercent = useSpring(0);
-  const [preloadedImages, setPreloadedImages] = useState<HTMLImageElement[]>(
-    []
-  );
 
   useEffect(() => {
     async function initialLoad() {
       const arr = [IMAGE_HERO_URL, IMAGE_LOGO_URL, IMAGE_BACKGROUND_URL];
 
-      const preloadedArr: HTMLImageElement[] = await preloadImages(
-        arr,
-        (newPercent) => loadingPercent.set(newPercent)
-      );
+      await preloadImages(arr, (newPercent) => loadingPercent.set(newPercent));
       setIsDoneShowContent(true);
 
       // Allow for content to render beneath the loader before showing user

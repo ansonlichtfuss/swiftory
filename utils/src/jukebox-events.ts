@@ -1,5 +1,8 @@
 import { EventMethods } from '@swiftory/utils';
 
+/**
+ * Helpers
+ */
 export const jukeboxEvents: EventMethods = {
   dispatch: (eventKey, eventBody) => {
     if (!eventKey) {

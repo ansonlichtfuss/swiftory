@@ -7,6 +7,9 @@ export function App({ children }) {
   return { children };
 }
 
+/**
+ * Component
+ */
 export default function Root() {
   return (
     <div className="relative" style={{ background: '#000' }}>

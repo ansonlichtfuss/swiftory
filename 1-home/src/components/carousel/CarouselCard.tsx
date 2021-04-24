@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { navigateToUrl } from 'single-spa';
 
+/**
+ * Component
+ */
 export const CarouselCard = ({
   data,
   layoutId,

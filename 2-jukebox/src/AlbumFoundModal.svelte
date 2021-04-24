@@ -10,9 +10,6 @@ export let setAlbumFoundKey;
 let thisData = albumData[albumFoundKey];
 </script>
 
-<style global lang="postcss">
-</style>
-
 <span
   class="fixed top-0 left-0 w-full h-full flex items-center justify-center"
   style="background:rgba(0,0,0,0.8);z-index:9999;"

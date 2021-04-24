@@ -4,6 +4,9 @@ import { AnsonLichtfussLogo } from '../../svg/AnsonLichtfussLogo';
 import { HeadingHero } from './HeadingHero';
 import { HeadingSubtext } from './HeadingSubtext';
 
+/**
+ * Component
+ */
 export const HeadingWrapper = () => {
   return (
     <div className="flex items-center justify-between heading-section mb-2 w-full max-w-5xl px-2 2xl:mt-6">

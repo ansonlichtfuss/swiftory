@@ -6,11 +6,6 @@ import React from 'react';
 export const IMAGE_HERO_URL = `${CDN_URL}/album-lover/lover-hero.png`;
 
 /**
- * Prop Types
- */
-type Props = {};
-
-/**
  * Component
  */
 export const Hero = (): JSX.Element => {

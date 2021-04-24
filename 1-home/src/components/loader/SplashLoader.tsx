@@ -11,6 +11,9 @@ const setShouldHideLoader = (value: 'true' | 'false'): void => {
   sessionStorage.setItem(HIDE_LOADER_CHECK_KEY, value);
 };
 
+/**
+ * Component
+ */
 export const SplashLoader = () => {
   const [showLoader, setShowLoader] = useState(!getShouldHideLoader());
 
@@ -48,10 +51,10 @@ export const SplashLoader = () => {
           <LetterO />
 
           <style>{`
-        .splashLoader svg {
-          height: 100px;
-        }
-      `}</style>
+            .splashLoader svg {
+              height: 100px;
+            }
+          `}</style>
         </motion.div>
       )}
     </AnimatePresence>

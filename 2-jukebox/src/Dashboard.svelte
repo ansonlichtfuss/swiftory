@@ -27,7 +27,7 @@ let emptyAlbumArray = new Array(Object.keys(albumData).length).fill("");
             albums found</span>
         </div>
         <div class="grid grid-cols-2 gap-x-6">
-          {#each emptyAlbumArray as albumPlaceholder, index}
+          {#each emptyAlbumArray as album, index}
             <div class="flex items-center my-2">
               <div
                 class="rounded-sm overflow-hidden flex-shrink-0"

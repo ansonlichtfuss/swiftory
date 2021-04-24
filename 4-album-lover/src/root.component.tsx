@@ -8,7 +8,10 @@ import { Hero, IMAGE_HERO_URL } from './Hero';
 import { LineLoader } from './LineLoader';
 import { IMAGE_LOGO_URL, Logo } from './Logo';
 
-export default function Root(props) {
+/**
+ * Component
+ */
+export default function Root() {
   const { scrollY } = useSpringScroll();
   const showText1 = useTransform(scrollY, [90, 600], [0, 1]);
 

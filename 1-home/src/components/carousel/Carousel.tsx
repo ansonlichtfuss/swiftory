@@ -41,6 +41,9 @@ const getCard = (index) => {
   return thisCard;
 };
 
+/**
+ * Component
+ */
 export const Carousel = () => {
   const isSmallScreen = useMediaQuery({
     query: '(max-height: 900px)',

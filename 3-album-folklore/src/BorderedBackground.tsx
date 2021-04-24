@@ -6,11 +6,6 @@ import React from 'react';
 export const IMAGE_BACKGROUND_URL = `${CDN_URL}/album-folklore/album-background.jpg`;
 
 /**
- * Prop Types
- */
-type Props = {};
-
-/**
  * Component
  */
 export const BorderedBackground = (): JSX.Element => {

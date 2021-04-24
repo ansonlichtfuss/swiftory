@@ -6,11 +6,6 @@ import React from 'react';
 export const IMAGE_LOGO_URL = `${CDN_URL}/album-reputation/reputation-logo.png`;
 
 /**
- * Prop Types
- */
-type Props = {};
-
-/**
  * Component
  */
 export const Logo = (): JSX.Element => {

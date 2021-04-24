@@ -11,6 +11,9 @@ const BRANCH_IDS = [1, 3, 5];
 export const getBranchUrl = (id: number) =>
   `${CDN_URL}/album-folklore/branch${id}.png`;
 
+/**
+ * Component
+ */
 export default function Root() {
   const { scrollY } = useSpringScroll();
 
@@ -19,9 +22,6 @@ export default function Root() {
   const [isLoading, setIsLoading] = useState(true);
   const [isDoneShowContent, setIsDoneShowContent] = useState(false);
   const loadingPercent = useSpring(0);
-  const [preloadedImages, setPreloadedImages] = useState<HTMLImageElement[]>(
-    []
-  );
 
   useEffect(() => {
     async function initialLoad() {
@@ -31,10 +31,7 @@ export default function Root() {
         ...BRANCH_IDS.map((id) => getBranchUrl(id)),
       ];
 
-      const preloadedArr: HTMLImageElement[] = await preloadImages(
-        arr,
-        (newPercent) => loadingPercent.set(newPercent)
-      );
+      await preloadImages(arr, (newPercent) => loadingPercent.set(newPercent));
       setIsDoneShowContent(true);
 
       // Allow for content to render beneath the loader before showing user
