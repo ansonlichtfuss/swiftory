@@ -1,9 +1,8 @@
 # SWIFTORY
 
-An exploration of micro frontend architecture,
-inter-app communication, and hand-crafted landing pages for some of Taylor Swift's most
-recent albums. Explore the albums, find artists that contributed to that album and collect their
-other work by adding it to your personal Jukebox!
+An experimental project using micro frontend architecture,
+cross-app communication, and hand-crafted landing pages for some of Taylor Swift's most
+recent albums. Explore the albums, find artists that contributed to that album and collect their work by adding it to your Jukebox!
 
 ## Demo
 
