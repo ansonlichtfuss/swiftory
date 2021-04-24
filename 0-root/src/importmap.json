@@ -1,8 +1,8 @@
 {
   "imports": {
     "@swiftory/root-config": "/swiftory-root-config.js",
-    "@swiftory/components": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/_components/swiftory-components.js",
-    "@swiftory/utils": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/_utils/swiftory-utils.js",
+    "@swiftory/components": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/components/swiftory-components.js",
+    "@swiftory/utils": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/utils/swiftory-utils.js",
     "@swiftory/home": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/1-home/swiftory-home.js",
     "@swiftory/jukebox": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/2-jukebox/swiftory-jukebox.js",
     "@swiftory/album-folklore": "https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/js/3-album-folklore/swiftory-album-folklore.js",

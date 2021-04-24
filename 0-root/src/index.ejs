@@ -9,7 +9,10 @@
       Meta + SEO information
     -->
     <title>Swiftory &mdash; A Project by Anson Lichtfuss</title>
-    <link href="https://www.ansonlichtfuss.com/favicons/favicon.ico" rel="shortcut icon" />
+    <link
+      href="https://www.ansonlichtfuss.com/favicons/favicon.ico"
+      rel="shortcut icon"
+    />
     <link
       href="https://www.ansonlichtfuss.com/favicons/apple-touch-icon.png"
       rel="apple-touch-icon"
@@ -61,7 +64,7 @@
     <link rel="canonical" href="https://swiftory.ansonlichtfuss.com" />
 
     <% if (isLocal) { %>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
     <% } %>
 
     <!--
@@ -153,28 +156,60 @@
       </nav> -->
         <main>
           <route default>
-            <application name="@swiftory/home" loader="homepageLoader" error="pageError"></application>
+            <application
+              name="@swiftory/home"
+              loader="homepageLoader"
+              error="pageError"
+            ></application>
           </route>
           <route path="/album/folklore">
-            <application name="@swiftory/album-folklore" loader="folkloreLoader" error="pageError"></application>
+            <application
+              name="@swiftory/album-folklore"
+              loader="folkloreLoader"
+              error="pageError"
+            ></application>
           </route>
           <route path="/album/lover">
-            <application name="@swiftory/album-lover" loader="loverLoader" error="pageError"></application>
+            <application
+              name="@swiftory/album-lover"
+              loader="loverLoader"
+              error="pageError"
+            ></application>
           </route>
           <route path="/album/reputation">
-            <application name="@swiftory/album-reputation" loader="reputationLoader" error="pageError"></application>
+            <application
+              name="@swiftory/album-reputation"
+              loader="reputationLoader"
+              error="pageError"
+            ></application>
           </route>
         </main>
         <div>
-          <application name="@swiftory/jukebox" loader="jukeboxLoader" error="jukeboxError"></application>
+          <application
+            name="@swiftory/jukebox"
+            loader="jukeboxLoader"
+            error="jukeboxError"
+          ></application>
         </div>
       </single-spa-router>
     </template>
 
     <!-- Preload the most important images, album artwork in the carousel-->
-    <link rel="preload" as="image" href="https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/carousel/folklore-cover.jpg">
-    <link rel="preload" as="image" href="https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/carousel/lover-cover.jpg">
-    <link rel="preload" as="image" href="https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/carousel/reputation-cover.jpg">
+    <link
+      rel="preload"
+      as="image"
+      href="https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/carousel/folklore-cover.jpg"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/carousel/lover-cover.jpg"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://cdn.ansonlichtfuss.com/file/public-cdn/projects/swiftory/carousel/reputation-cover.jpg"
+    />
   </head>
   <body id="body" style="background: #000; color: #fff">
     <script>
