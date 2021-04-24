@@ -17,7 +17,7 @@ recent albums. Explore the albums, find artists that contributed to that album a
 - Performance optimized through CDN caching (thanks [B2 + Cloudflare](https://help.backblaze.com/hc/en-us/articles/217666928-Using-Backblaze-B2-with-the-Cloudflare-CDN)) and image preloading.
 - Root micro frontend app deployed with [Vercel](https://vercel.com) (child app bundles load through the CDN).
 - Deduplicated dependencies (`react`, `react-dom`, and `framer-motion`) for less redundant JS downloading.
-- Shared `_components` and `_utils` with fully functional Typescript types and autocomplete.
+- Shared `components` and `utils` with fully functional Typescript types and autocomplete.
 - Browser [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) for hiding splash screens and persisting user selections.
 
 ## Run Locally
