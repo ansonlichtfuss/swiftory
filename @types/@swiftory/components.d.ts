@@ -1,11 +1,14 @@
 declare module '@swiftory/components' {
-  import { FunctionComponent } from 'react';
-
+  import { MotionValue } from 'framer-motion';
   export const AddToJukeboxButton: ({
     albumKey,
     children,
   }: {
     albumKey: string;
     children: React.ReactNode;
-  }) => FunctionComponent;
+  }) => JSX.Element;
+
+  export const useSpringScroll: () => {
+    scrollY: MotionValue<number>;
+  };
 }
