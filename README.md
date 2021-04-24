@@ -1,17 +1,14 @@
 # SWIFTORY
 
-An exploration of micro frontend architecture, 
+An exploration of micro frontend architecture,
 inter-app communication, and hand-crafted langing pages for some of Taylor Swift's most
 recent albums. Explore the albums, find artists that contributed to that album and collect their
 other work by adding it to your personal Jukebox!
-
 
 ## Demo
 
 [swiftory.ansonlichtfuss.com](https://swiftory.ansonlichtfuss.com)
 
-
-  
 ## Features
 
 - Micro frontend functionality and client side routing supplied by [single-spa](https://single-spa.js.org).
@@ -24,8 +21,6 @@ other work by adding it to your personal Jukebox!
 - Shared `_components` and `_utils` with fully functional Typescript types and autocomplete.
 - Browser [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) for hiding splash screens and persisting user selections.
 
-
-  
 ## Run Locally
 
 Clone the project
@@ -54,9 +49,8 @@ Start the server
   npm run start
 ```
 
-  
+The above command can be run in the root directory to execute all services simultaneously as well.
+
 ## Authors
 
 - [@ansonlichtfuss](https://www.github.com/ansonlichtfuss)
-
-  
