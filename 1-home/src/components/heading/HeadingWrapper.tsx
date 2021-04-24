@@ -1,3 +1,4 @@
+import { Github } from '@icons-pack/react-simple-icons';
 import React from 'react';
 import { AnsonLichtfussLogo } from '../../svg/AnsonLichtfussLogo';
 import { HeadingHero } from './HeadingHero';
@@ -12,21 +13,26 @@ export const HeadingWrapper = () => {
         <HeadingSubtext>of Taylor Swift</HeadingSubtext>
       </div>
 
-      <a
-        href="https://www.ansonlichtfuss.com"
-        className="heading-author-link rounded bg-white px-4 py-2 flex flex-col items-center transition-transform"
-      >
-        <AnsonLichtfussLogo fill="#000" />
-      </a>
-      <style>{`
-        .heading-author-link svg {
-          height: 32px;
-          opacity: 1;
-        }
-        .heading-author-link:hover svg {
-          opacity: 0.8;
-        }
-      `}</style>
+      <div className="flex items-center">
+        <a
+          className="flex justify-center rounded-l bg-white pl-3 pr-2 py-2 flex items-center text-black opacity-50 hover:opacity-100 active:opacity-80 transition-opacity box-content"
+          href="https://github.com/ansonlichtfuss/swiftory"
+          target="_blank"
+          rel="noreferrer"
+          style={{ width: '28px', height: '24px' }}
+        >
+          <Github />
+        </a>
+        <a
+          className="flex justify-center rounded-r bg-white pl-2 pr-3 py-2 flex items-center text-black opacity-50 hover:opacity-100 active:opacity-80 transition-opacity box-content"
+          href="https://www.ansonlichtfuss.com"
+          target="_blank"
+          rel="noreferrer"
+          style={{ width: '28px', height: '24px' }}
+        >
+          <AnsonLichtfussLogo fill="#000" style={{ width: '28px' }} />
+        </a>
+      </div>
     </div>
   );
 };

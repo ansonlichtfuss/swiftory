@@ -1,8 +1,13 @@
 import React from 'react';
 
-export const AnsonLichtfussLogo = ({ stroke = '#fff', fill = 'none' }) => {
+export const AnsonLichtfussLogo = ({
+  stroke = '#fff',
+  fill = 'none',
+  style = {},
+}) => {
   return (
     <svg
+      style={style}
       className="transition-opacity"
       clip-rule="evenodd"
       fill-rule="evenodd"
