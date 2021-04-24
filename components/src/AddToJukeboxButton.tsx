@@ -9,7 +9,7 @@ type AddToJukeboxButtonProps = {
 export const AddToJukeboxButton = ({
   albumKey,
   children,
-}: AddToJukeboxButtonProps): React.FunctionComponent => {
+}: AddToJukeboxButtonProps): JSX.Element => {
   return (
     <button
       style={{ outline: 'none' }}
