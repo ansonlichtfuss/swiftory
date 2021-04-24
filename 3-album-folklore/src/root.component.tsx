@@ -1,11 +1,6 @@
-import { AddToJukeboxButton } from '@swiftory/components';
+import { AddToJukeboxButton, useSpringScroll } from '@swiftory/components';
 import { CDN_URL, preloadImages } from '@swiftory/utils';
-import {
-  motion,
-  useSpring,
-  useTransform,
-  useViewportScroll,
-} from 'framer-motion';
+import { motion, useSpring, useTransform } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { BorderedBackground, IMAGE_BACKGROUND_URL } from './BorderedBackground';
 import { Branch } from './Branch';
@@ -16,9 +11,10 @@ const BRANCH_IDS = [1, 3, 5];
 export const getBranchUrl = (id: number) =>
   `${CDN_URL}/album-folklore/branch${id}.png`;
 
-export default function Root(props) {
-  const { scrollY } = useViewportScroll();
-  const showText1 = useTransform(scrollY, [90, 200], [0, 1]);
+export default function Root() {
+  const { scrollY } = useSpringScroll();
+
+  const showText1 = useTransform(scrollY, [90, 600], [0, 1]);
 
   const [isLoading, setIsLoading] = useState(true);
   const [isDoneShowContent, setIsDoneShowContent] = useState(false);
@@ -66,21 +62,21 @@ export default function Root(props) {
           <Branch
             src={getBranchUrl(1)}
             align="left-0"
-            xRange={[-200, 100]}
+            xRange={[-600, 100]}
             scaleRange={[1.2, 1]}
             blurRange={['20px', '0px']}
           />
           <Branch
             src={getBranchUrl(3)}
             align="right-0"
-            xRange={[200, 0]}
+            xRange={[600, 0]}
             scaleRange={[1.2, 1]}
             blurRange={['8px', '1px']}
           />
           <Branch
             src={getBranchUrl(5)}
             align="right-0"
-            xRange={[200, -100]}
+            xRange={[600, -100]}
             scaleRange={[1.2, 1]}
             blurRange={['20px', '0px']}
           />
@@ -138,7 +134,7 @@ export default function Root(props) {
               </motion.div>
             </div>
           </div>
-          <div style={{ width: '100%', height: 'calc(100vh + 200px)' }}></div>
+          <div style={{ width: '100%', height: 'calc(100vh + 600px)' }}></div>
         </>
       )}
     </section>

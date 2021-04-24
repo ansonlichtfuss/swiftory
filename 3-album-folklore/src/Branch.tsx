@@ -1,4 +1,5 @@
-import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { useSpringScroll } from '@swiftory/components';
+import { motion, useTransform } from 'framer-motion';
 import { InputRange } from 'framer-motion/types/value/use-transform';
 import React from 'react';
 
@@ -23,12 +24,13 @@ export const Branch = ({
   scaleRange,
   blurRange,
 }: Props): JSX.Element => {
-  const { scrollY } = useViewportScroll();
-  const x = useTransform(scrollY, [0, 200], xRange);
-  const scale = useTransform(scrollY, [0, 200], scaleRange);
+  const { scrollY } = useSpringScroll();
+
+  const x = useTransform(scrollY, [0, 600], xRange);
+  const scale = useTransform(scrollY, [0, 600], scaleRange);
   const filter = useTransform(
     scrollY,
-    [0, 200],
+    [0, 600],
     [`blur(${blurRange[0]})`, `blur(${blurRange[1]})`]
   );
 

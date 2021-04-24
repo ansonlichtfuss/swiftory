@@ -1,5 +1,5 @@
 import { CDN_URL } from '@swiftory/utils';
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 import React from 'react';
 import { navigateToUrl } from 'single-spa';
 
@@ -39,7 +39,7 @@ export const CarouselCard = ({
   };
 
   return (
-    <m.a
+    <motion.a
       layout
       layoutId={layoutId}
       className={`absolute top-0 left-2/4 flex items-center justify-center rounded overflow-hidden cursor-pointer ${
@@ -100,6 +100,6 @@ export const CarouselCard = ({
           opacity: 0.8;
         }
       `}</style>
-    </m.a>
+    </motion.a>
   );
 };

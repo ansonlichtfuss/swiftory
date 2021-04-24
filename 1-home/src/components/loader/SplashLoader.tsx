@@ -1,5 +1,5 @@
 import { preloadImages } from '@swiftory/utils';
-import { AnimatePresence, m } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { ALL_IMAGES } from '../../images';
 import { LetterO } from '../../svg/LetterO';
@@ -34,7 +34,7 @@ export const SplashLoader = () => {
   return (
     <AnimatePresence>
       {showLoader && (
-        <m.div
+        <motion.div
           key="splashLoader"
           className="splashLoader fixed bg-black top-0 left-0 w-screen h-screen flex items-center justify-center z-50"
           animate={{
@@ -52,7 +52,7 @@ export const SplashLoader = () => {
           height: 100px;
         }
       `}</style>
-        </m.div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

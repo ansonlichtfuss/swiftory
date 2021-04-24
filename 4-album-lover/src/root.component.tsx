@@ -1,11 +1,6 @@
-import { AddToJukeboxButton } from '@swiftory/components';
+import { AddToJukeboxButton, useSpringScroll } from '@swiftory/components';
 import { CDN_URL, preloadImages } from '@swiftory/utils';
-import {
-  motion,
-  useSpring,
-  useTransform,
-  useViewportScroll,
-} from 'framer-motion';
+import { motion, useSpring, useTransform } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { BorderedBackground, IMAGE_BACKGROUND_URL } from './BorderedBackground';
 import { CloudCanvas } from './CloudCanvas';
@@ -14,8 +9,8 @@ import { LineLoader } from './LineLoader';
 import { IMAGE_LOGO_URL, Logo } from './Logo';
 
 export default function Root(props) {
-  const { scrollY } = useViewportScroll();
-  const showText1 = useTransform(scrollY, [90, 200], [0, 1]);
+  const { scrollY } = useSpringScroll();
+  const showText1 = useTransform(scrollY, [90, 600], [0, 1]);
 
   const [isLoading, setIsLoading] = useState(true);
   const [isDoneShowContent, setIsDoneShowContent] = useState(false);

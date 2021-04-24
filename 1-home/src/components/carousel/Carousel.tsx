@@ -1,4 +1,4 @@
-import { AnimateSharedLayout, m } from 'framer-motion';
+import { AnimateSharedLayout, motion } from 'framer-motion';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { FOLKLORE_COVER, LOVER_COVER, REPUTATION_COVER } from '../../images';
@@ -80,7 +80,7 @@ export const Carousel = () => {
   };
 
   return (
-    <m.div
+    <motion.div
       className="relative w-full"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -158,6 +158,6 @@ export const Carousel = () => {
           })}
         </div>
       </AnimateSharedLayout>
-    </m.div>
+    </motion.div>
   );
 };

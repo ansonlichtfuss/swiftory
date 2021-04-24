@@ -1,5 +1,6 @@
+import { useSpringScroll } from '@swiftory/components';
 import { CDN_URL } from '@swiftory/utils';
-import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
 import React from 'react';
 
 export const IMAGE_LOGO_URL = `${CDN_URL}/album-lover/lover-logo.png`;
@@ -13,9 +14,9 @@ type Props = {};
  * Component
  */
 export const Logo = (): JSX.Element => {
-  const { scrollY } = useViewportScroll();
-  const logoScale = useTransform(scrollY, [0, 200], [1, 0.4]);
-  const logoY = useTransform(scrollY, [0, 200], [50, 0]);
+  const { scrollY } = useSpringScroll();
+  const logoScale = useTransform(scrollY, [0, 600], [1, 0.4]);
+  const logoY = useTransform(scrollY, [0, 600], [50, 0]);
 
   return (
     <motion.div

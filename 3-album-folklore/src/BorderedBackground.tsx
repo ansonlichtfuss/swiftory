@@ -1,5 +1,6 @@
+import { useSpringScroll } from '@swiftory/components';
 import { CDN_URL } from '@swiftory/utils';
-import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
 import React from 'react';
 
 export const IMAGE_BACKGROUND_URL = `${CDN_URL}/album-folklore/album-background.jpg`;
@@ -13,17 +14,17 @@ type Props = {};
  * Component
  */
 export const BorderedBackground = (): JSX.Element => {
-  const { scrollY } = useViewportScroll();
+  const { scrollY } = useSpringScroll();
   const boxShadowWidth = useTransform(
     scrollY,
-    [0, 200],
+    [0, 600],
     [
       '0 0 0 1px rgba(255,255,255,0) inset',
       '0 0 0 1px rgba(255,255,255,1) inset',
     ]
   );
-  const bgSize = useTransform(scrollY, [0, 200], [1.1, 1]);
-  const bgOpacity = useTransform(scrollY, [0, 200], [1, 0.4]);
+  const bgSize = useTransform(scrollY, [0, 600], [1.1, 1]);
+  const bgOpacity = useTransform(scrollY, [0, 600], [1, 0.4]);
 
   return (
     <>

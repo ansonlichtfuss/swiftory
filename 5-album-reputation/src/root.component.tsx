@@ -1,20 +1,16 @@
-import { AddToJukeboxButton } from '@swiftory/components';
+import { AddToJukeboxButton, useSpringScroll } from '@swiftory/components';
 import { preloadImages } from '@swiftory/utils';
-import {
-  motion,
-  useSpring,
-  useTransform,
-  useViewportScroll,
-} from 'framer-motion';
+import { motion, useSpring, useTransform } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { BorderedBackground, IMAGE_BACKGROUND_URL } from './BorderedBackground';
 import { Hero, IMAGE_HERO_URL } from './Hero';
 import { LineLoader } from './LineLoader';
 import { IMAGE_LOGO_URL, Logo } from './Logo';
 
-export default function Root(props) {
-  const { scrollY } = useViewportScroll();
-  const showText1 = useTransform(scrollY, [90, 200], [0, 1]);
+export default function Root() {
+  const { scrollY } = useSpringScroll();
+
+  const showText1 = useTransform(scrollY, [90, 400], [0, 1]);
 
   const [isLoading, setIsLoading] = useState(true);
   const [isDoneShowContent, setIsDoneShowContent] = useState(false);
@@ -101,7 +97,7 @@ export default function Root(props) {
               </motion.div>
             </div>
           </div>
-          <div style={{ width: '100%', height: 'calc(100vh + 200px)' }}></div>
+          <div style={{ width: '100%', height: 'calc(100vh + 400px)' }}></div>
         </>
       )}
     </section>

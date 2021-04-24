@@ -1,5 +1,6 @@
+import { useSpringScroll } from '@swiftory/components';
 import { CDN_URL } from '@swiftory/utils';
-import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
 import React from 'react';
 
 export const IMAGE_BACKGROUND_URL = `${CDN_URL}/album-lover/lover-background-image.jpg`;
@@ -13,10 +14,11 @@ type Props = {};
  * Component
  */
 export const BorderedBackground = (): JSX.Element => {
-  const { scrollY } = useViewportScroll();
+  const { scrollY } = useSpringScroll();
+
   const boxShadowWidth = useTransform(
     scrollY,
-    [0, 200],
+    [0, 600],
     ['0 0 0 0px #fff inset', '0 0 0 1px #fff inset']
   );
 

@@ -1,4 +1,4 @@
-import { useViewportScroll } from 'framer-motion';
+import { useSpring, useViewportScroll } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 
 /**
@@ -12,7 +12,11 @@ type Props = {
  * Component
  */
 export const CloudCanvas = ({ preloadedImages }: Props): JSX.Element => {
-  const { scrollYProgress, scrollY } = useViewportScroll();
+  const { scrollYProgress: scrollYProgressValue } = useViewportScroll();
+  const scrollYProgress = useSpring(scrollYProgressValue, {
+    damping: 30,
+    stiffness: 200,
+  });
   const canvasRef = useRef<HTMLCanvasElement>();
 
   const drawCanvasImage = (imgToDraw) => {
